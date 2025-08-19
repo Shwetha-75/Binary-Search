@@ -39,6 +39,7 @@ class Solution:
           min_element=sys.maxsize
           while left<=right:
                 mid=(left+right)//2 
+                
                 if nums[left]==nums[mid] and nums[mid]==nums[right]:
                     min_element=min(min_element,nums[mid])
                     left+=1
