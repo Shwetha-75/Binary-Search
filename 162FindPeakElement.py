@@ -61,7 +61,25 @@ class Solution:
                   left=mid+1
               else:
                   right=mid-1
-        
+class Solution:
+    def findPeakElement(self, nums: list[int]) -> int:
+        n=len(nums)
+        if n==1 or nums[0]>nums[1]:
+            return 0
+        if nums[-2]<nums[-1]:
+            return n-1
+        low,high=1,n-2
+        while low+1<high:
+              mid=low+(high-low)//2 
+              if nums[mid-1]<nums[mid] and nums[mid]>nums[mid+1]:
+                  return mid 
+              if nums[mid-1]<nums[mid]:
+                  low=mid 
+              else:
+                  high=mid 
+        if nums[low-1]<nums[low] and nums[low]>nums[low+1]: return low 
+        if nums[high-1]<nums[high] and nums[high]>nums[high+1]: return high
+           
                 
 class TestApp:
       def testing_case_one(self):
